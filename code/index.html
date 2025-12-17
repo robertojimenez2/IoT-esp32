@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visualización IoT ESP32 & ThingSpeak</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>📊 Datos de Sensores en Tiempo Real (ESP32)</h1>
+
+      <h2>Estadísticas Descriptivas Recientes (N=1000)</h2>
+      <div id="statsContainer">
+        <p>Cargando estadísticas...</p>
+      </div>
+
+      <h2>Distancia Ultrasónica (cm)</h2>
+      <div class="chart-wrapper">
+        <canvas id="chartDistancia"></canvas>
+      </div>
+
+      <h2>Distribución de Distancia (Histograma)</h2>
+      <div class="chart-wrapper">
+        <canvas id="chartHistogramaDistancia"></canvas>
+      </div>
+
+      <h2>Nivel de Luz (LDR Mapeado)</h2>
+      <div class="chart-wrapper">
+        <canvas id="chartLuz"></canvas>
+      </div>
+
+      <h2>Distribución de Luz (Histograma)</h2>
+      <div class="chart-wrapper">
+        <canvas id="chartHistogramaLuz"></canvas>
+      </div>
+      <div class="acciones">
+        <p>LEDS</p>
+        <button
+          id="btnBrilloUp"
+          style="background-color: red"
+          onclick="cambiartxtbrillomaximo()"
+        >
+          Brillo al maximo
+        </button>
+        <p id="conteoBrilloUp"></p>
+        <button
+          id="btnBrilloDown"
+          style="background-color: aquamarine; color: black"
+          onclick="cambiartxtbrillominimo()"
+        >
+          Brillo al minimo
+        </button>
+        <p id="conteoBrilloDown"></p>
+        <button id="brilloAutomatic" onclick="cambiartxtbrilloaut()">
+          Brillo automatico
+        </button>
+        <p id="conteoBrilloAutomatic"></p>
+        <div style="margin: 5% 0">
+          <p>OLED</p>
+          <input type="text" name="" id="msjToSend" />
+          <button
+            id="BtnOled"
+            style="display: block"
+            onclick="cambiartxtoled()"
+          >
+            Mandar mensaje al oled
+          </button>
+          <p id="conteoMsjSend"></p>
+          <button
+            id="BtnClearOled"
+            style="background-color: salmon"
+            onclick="cambiartxtclearoled()"
+          >
+            Actualizacion automarica de oled
+          </button>
+          <p id="conteoClearOled"></p>
+        </div>
+        <p>BUZZER</p>
+        <button id="btnEncenderBuzzer" onclick="cambiartxtencenderBuzzer()">
+          Encender buzzer
+        </button>
+        <button
+          id="btnApagarBuzzer"
+          style="background-color: red"
+          onclick="cambiartxtapagarBuzzer()"
+        >
+          Apagar buzzer
+        </button>
+        <p id="conteoEncenderBuzzer"></p>
+        <p id="conteoApagarBuzzer"></p>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
