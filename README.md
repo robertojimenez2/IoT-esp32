@@ -1,3 +1,1 @@
---In the present project I show the functionality of a IoT project --
-I made use of an esp32 and an ultrasonic sensor en LDR. 
-The data colected by the sensors were sent to a web page and displayed as charts and show the stadistics of the data.
+Developed a bi-directional IoT Telemetry System using C++ (ESP32) and web technologies. The system integrates ultrasonic and LDR sensors to log environmental data to a web dashboard, visualizing trends and statistics with a 45-second transmission interval. It also features remote actuator control, allowing users to trigger a buzzer and send text commands to a local OLED interface from the browser.
